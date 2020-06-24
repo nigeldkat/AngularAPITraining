@@ -1,0 +1,32 @@
+dotnet cli
+
+dotnet -h  for info with dotnet cli
+dotnet run    to run
+dotnet watch run - when files change auto restart
+
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+
+Visual Studio Code Extensions needed
+C#
+C# Extensions
+NuGet Package Manager
+
+exclude search and then exlcued folders
+
+---------------------------------------------------------------
+Installing bootstrap
+
+npm install bootstrap font-awesome
+in styles.css
+
+---------------------------------------------------------------
+creating git repository
+git init
+
+
+
+
+
