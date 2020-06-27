@@ -4,8 +4,12 @@ dotnet -h  for info with dotnet cli
 dotnet run    to run
 dotnet watch run - when files change auto restart
 
+- for data first
 dotnet tool install --global dotnet-ef
 dotnet ef migrations add InitialCreate
+dotnet ef database update
+ - new migration after any changes to data models
+dotnet ef migrations add User
 dotnet ef database update
 
 
@@ -25,6 +29,18 @@ in styles.css
 ---------------------------------------------------------------
 creating git repository
 git init
+
+----------------------------------------------------------------
+Security    
+Hash and Salt PWs
+
+----------------------------------------------------------------
+Using Auth token in Postman 
+Lesson 36 - Using the Authentication middleware
+
+
+
+
 
 
 
