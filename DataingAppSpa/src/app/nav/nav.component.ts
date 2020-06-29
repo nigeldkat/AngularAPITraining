@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,27 +12,31 @@ export class NavComponent implements OnInit {
   model: any = {};
 
 
-  constructor( private authService: AuthService) { }
+  constructor(
+    public authService: AuthService,
+    private alertService: AlertifyService) { }
 
   ngOnInit() {
   }
 
   login() {
     this.authService.login(this.model).subscribe({
-      next: (token) => { console.log('success' + token); },
-      error: (error: any) => {console.log(error); }
+      next: (token) => { this.alertService.success('Successful login'); },
+      error: (error: any) => {this.alertService.error(error); }
     });
   }
 
   loggedIn() {
-    const token = localStorage.getItem('token');
-    return !!token;
+    return this.authService.loggedIn();
+    // retained becuase I liked the !! example
+    // const token = localStorage.getItem('token');
+    // return !!token;
     // !! will return true if object exists
   }
 
   logout() {
     localStorage.removeItem('token');
-    console.log('logged out');
+    this.alertService.message('logged out');
   }
 
 }
