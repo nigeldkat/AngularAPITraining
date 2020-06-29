@@ -39,6 +39,32 @@ Using Auth token in Postman
 Lesson 36 - Using the Authentication middleware
 
 
+__________________________________________________
+Section 6 3rd party compnents
+
+AlertifyJS - like toast
+	npm install alertifyjs     to intsall
+	add css to styles.css
+--this wasn't configured correctly to use import * as alertify from '....'
+	1.  needed to add 'declare module 'alertifyjs';` to new file called typings.d.js in src folder
+	2.  go to tsconfig.json 
+		- typeRoots section and add src/typings.d.ts
+ 
+AuthO JWT  - works with JWT token
+	npm install @auth0/angular-jwt  
+
+Ngx Bootstrap - works with bootstrap vs jquery
+	npm install ngx-bootstrap --save
+
+	see ngx-bootstrap for list of options and components
+
+
+
+
+
+
+
+
 
 
 
