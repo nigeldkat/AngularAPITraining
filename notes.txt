@@ -54,9 +54,12 @@ AuthO JWT  - works with JWT token
 	npm install @auth0/angular-jwt  
 
 Ngx Bootstrap - works with bootstrap vs jquery
-	npm install ngx-bootstrap --save
+	npm add ngx-bootstrap --save
 
 	see ngx-bootstrap for list of options and components
+
+Bootswatch - themes for Bootstrap
+	npm install bootswatch
 
 
 
