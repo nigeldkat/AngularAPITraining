@@ -24,10 +24,10 @@ export class NavComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe({
       next: (token) => {
-        console.log('success' + token);
+        this.alertService.success('Logged In');
         this.router.navigate(['/members']);
       },
-      error: (error: any) => {console.log(error); }
+      error: (error: any) => {this.alertService.error('Invalid Login Attempt'); }
 
     });
   }
