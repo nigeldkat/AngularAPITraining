@@ -34,7 +34,6 @@ export class NavComponent implements OnInit {
 
   loggedIn() {
     return this.authService.loggedIn();
-    this.router.navigate(['/home']);
     // retained becuase I liked the !! example
     // const token = localStorage.getItem('token');
     // return !!token;
@@ -44,6 +43,7 @@ export class NavComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     this.alertService.message('logged out');
+    this.router.navigate(['/home']);
   }
 
 }
