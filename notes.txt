@@ -12,6 +12,9 @@ dotnet ef database update
 dotnet ef migrations add User
 dotnet ef database update
 
+dotnet ef database drop
+
+
 
 Visual Studio Code Extensions needed
 C#
