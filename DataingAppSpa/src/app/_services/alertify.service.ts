@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 // import everything from alertify
 // needed to create typings.d.ts file to use * and add to tsconfig
 import * as alertify from 'alertifyjs';
