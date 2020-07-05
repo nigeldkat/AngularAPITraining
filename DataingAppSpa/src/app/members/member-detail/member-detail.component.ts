@@ -19,22 +19,26 @@ export class MemberDetailComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUser();
-  }
-
-  loadUser() {
-    // the + is used to convert to a number
-    // tslint didn't like formatting of below
-    // this.userService.getUser(+this.route.snapshot.params['id']).subscribe({
-
-    this.userService.getUser(+this.route.snapshot.params.id).subscribe({
-      next: (user: User) => {
-        this.user = user;
-      },
-      error: error => {
-        this.alertify.error(error);
-      }
+    // use route data vs calling service from here
+    // this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data.user;
     });
   }
+
+  // loadUser() {
+  //   // the + is used to convert to a number
+  //   // tslint didn't like formatting of below
+  //   // this.userService.getUser(+this.route.snapshot.params['id']).subscribe({
+
+  //   this.userService.getUser(+this.route.snapshot.params.id).subscribe({
+  //     next: (user: User) => {
+  //       this.user = user;
+  //     },
+  //     error: error => {
+  //       this.alertify.error(error);
+  //     }
+  //   });
+  // }
 
 }
