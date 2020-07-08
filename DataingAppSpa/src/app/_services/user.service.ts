@@ -29,7 +29,6 @@ export class UserService {
   }
 
   updateUser(id: number, user: User) {
-    debugger;
     return this.http.put(this.baseUrl + 'users/' + id, user);
   }
 
