@@ -41,6 +41,11 @@ Hash and Salt PWs
 Using Auth token in Postman 
 Lesson 36 - Using the Authentication middleware
 
+	1.  Login and get token from return
+	2.  In header tab create new key
+		key = Authorication   Value = Bearer token
+		make sure to have a space after Bearer		
+
 
 __________________________________________________
 Section 6 3rd party compnents
