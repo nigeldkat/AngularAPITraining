@@ -4,21 +4,51 @@
 
     <hr>
     <div class="form-group">
-        <input type="text" class="form-control"  formControlName="username"  placeholder="Username">
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('username').errors && 
+            registerForm.get('username').touched}" formControlName="username" placeholder="Username">
+        <div class="invalid-feedback">Username invalid</div>
     </div>
     <div class="form-group">
-        <input type="password" class="form-control"  formControlName="password"  placeholder="Password">
+        <input type="password" class="form-control" [ngClass]="{'is-invalid': registerForm.get('password').errors && 
+             registerForm.get('password').touched}" formControlName="password" placeholder="Password">
+        <div class="invalid-feedback">
+            <div *ngIf=" registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+                Password Required
+            </div>
+            <div *ngIf=" registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+                Password Too Short
+            </div>
+            <div *ngIf=" registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+                Password Too Long
+            </div> 
+        </div>
     </div>
     <div class="form-group">
-        <input type="password" class="form-control"  formControlName="confirmPassword"  placeholder="Confirm Password">
+        <input type="password" class="form-control" [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors && 
+            registerForm.get('confirmPassword').touched}" formControlName="confirmPassword"
+            placeholder="Confirm Password">
+         <div class="invalid-feedback">
+            <div *ngIf=" registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">
+                Required
+            </div>
+            <!--  This doesn't work here becuase invalid-feedback seems to tie a single control not formGroup
+            <div *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword').touched">
+                Passwords Do Not Match
+            </div> -->
+        </div> 
+        <!-- need to do better styling on text-danger to match invalid-feedback -->
+        <div class="text-danger" *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword').touched">
+            Passwords Must Match
+        </div>
     </div>
 
-    <p>Form value: {{registerForm.value | json}}</p>
-    <p>Form status: {{registerForm.status | json}}</p>
+        <p>Form value: {{registerForm.value | json}}</p>
+        <p>Form status: {{registerForm.status | json}}</p>
 
 
-    <div class="form-group text-center">
-        <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Register</button>
-        <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
-    </div>
+        <div class="form-group text-center">
+            <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Register</button>
+            <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+        </div>
+    
 </form>
