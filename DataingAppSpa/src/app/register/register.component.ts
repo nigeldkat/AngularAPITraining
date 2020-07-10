@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
@@ -11,20 +12,28 @@ import { AlertifyService } from '../_services/alertify.service';
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter<boolean>();
   model: any = {};
+  registerForm: FormGroup;
 
   constructor(
     private authService: AuthService,
     private alertService: AlertifyService) { }
 
   ngOnInit() {
+    this.registerForm = new FormGroup(
+      {
+        username: new FormControl(),
+        password: new FormControl(),
+        confirmPassword: new FormControl()
+      }
+    );
   }
 
   register() {
-    console.log(this.model);
-    this.authService.register(this.model).subscribe({
-      next: () => { this.alertService.success('Successfully Registered.'); },
-      error: (error) => { this.alertService.error(error); }
-    });
+    console.log(this.registerForm.value);
+    // this.authService.register(this.model).subscribe({
+    //   next: () => { this.alertService.success('Successfully Registered.'); },
+    //   error: (error) => { this.alertService.error(error); }
+    // });
   }
 
   cancel() {
