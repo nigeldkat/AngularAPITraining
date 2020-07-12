@@ -31,6 +31,8 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unchanged-changes.guard';
 
+
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
