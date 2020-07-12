@@ -14,6 +14,10 @@
         </ul>
     
         <div class="dropdown" *ngIf="loggedIn()" dropdown>
+            <span class="mr-1">
+                <!-- hack for setting size  do it correctly in css of find why css not working-->
+                <img src="{{photoUrl || '../../assets/study.jpg'}}" alt="" height="30" width="30">
+            </span>
             <a class="dropdown-toggle text-light" dropdownToggle>
               Welcome {{authService.decodedToken?.unique_name | titlecase}}
             </a>
