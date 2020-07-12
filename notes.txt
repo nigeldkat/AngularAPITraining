@@ -82,6 +82,16 @@ Partial class is used to bring in part of an object.  Effectively making all req
 properties optional
 
 
+-----------------------------------------------
+Time Ago Pipe   to pull in lib
+
+doesn't work on angular 9
+
+https://www.npmjs.com/package/time-ago-pipe
+npm install time-ago-pipe --save
+
+
+
 
 
 
