@@ -27,6 +27,7 @@ namespace DatingApp.API.Helpers
 
             CreateMap<UserForRegisterDto, User>();
 
+
         }
     }
 }
